@@ -1,0 +1,24 @@
+{
+  "name": "shinyspacebar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "parcel build src/index.html",
+    "watch": "parcel serve src/index.html",
+    "test": "tslint src/index.ts && tsc src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcposch/shinyspacebar.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/dcposch/shinyspacebar/issues"
+  },
+  "homepage": "https://shinyspacebar.com",
+  "dependencies": {
+    "parcel": "^1.12.3"
+  }
+}
