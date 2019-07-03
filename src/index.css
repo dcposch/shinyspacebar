@@ -1,13 +1,148 @@
-body {
-    max-width: 400px;
-    margin: 0 auto;
+/**
+ * RESET
+ */
+
+ body {
+     margin: 0;
+ }
+
+ a {
+    text-decoration: none;
+ }
+ 
+
+/*
+ * TYPOGRAPHY
+ */
+
+.TypeH1 {
+    font: bold 24px monospace;
+    color: #333;
+}
+
+.TypeH2 {
+    font: 24px monospace;
+    color: #333;
+}
+
+.TypeH3 {
     font: 18px monospace;
+    color: #333;
 }
 
-h1 {
-    font-size: 24px;
-    font-weight: bold;
+.TypeBody {
+    font: 18px monospace;
+    color: #888;
 }
 
-.GameLink {
+.TypeLink {
+    font: 18px monospace;
+    color: #33f;
+}
+
+
+/**
+ * LAYOUT
+ */
+
+.LayWrap {
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.LayTitle {
+    margin: 60px 0 30px 20px;
+}
+
+.LayFooter {
+    margin: 90px 0 30px 0;
+    text-align: center;
+}
+
+.LayFooter hr {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+
+/**
+ * HOME PAGE
+ */
+
+.PgHome nav {
+    display: flex;
+}
+
+.PgHomeGame {
+    position: relative;
+    width: 80px;
+    text-align: center;
+    padding: 15px 15px 10px 15px;
+    border-radius: 8px;
+}
+
+.PgHomeGame:hover {
+    background: #eee;
+}
+
+.PgHomeGame img {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #888;
+    border-radius: 4px;
+}
+
+.PgHomeDisabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+
+/**
+ * GAME PAGE
+ */
+
+ .PgGameTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.PgGameTitle a {
+    border-radius: 8px;
+    padding: 5px 15px;
+    margin-right: 5px;
+}
+
+.PgGameTitle a:hover {
+    background: #eee;
+}
+
+.PgGameStatusBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.PgGameScreen {
+    margin: 30px 20px;
+    width: 290px;
+    height: 290px;
+    background: #eee;
+}
+
+.PgGameModal {
+    position: absolute;
+    top: 270px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    cursor: default;
+}
+
+.PgGameModal div {
+    width: 100%;
 }

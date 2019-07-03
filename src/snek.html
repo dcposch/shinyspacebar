@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>SHINY SPACEBAR</title>
+        <title>shiny spacebar</title>
         <link rel="stylesheet" href="/index.css" />
     </head>
-    <body>
-        <h1>
-            SNEK
-        </h1>
-        <div>
-            todo
+    <body class="PgGame PgGameSnek">
+        <div class="LayWrap">
+            <div class="LayTitle PgGameTitle">
+                <span class="TypeH1">
+                    SNEK
+                </span>
+                <a class="TypeLink PgGameLink" href="/">^ done</a>
+            </div>
+            <div class="PgGameStatusBar">
+                <div class="TypeH3 JsLevel">L01</div>
+                <div class="TypeH3 JsScore">0000</div>
+            </div>
+            <div class="PgGameScreen JsGameScreen"></div>
+            <div class="PgGameModal JsGameModal">
+                <div>
+                    <div class="TypeH3">TAP TO START</div>
+                    <div class="TypeBody">TAP TO TURN RIGHT</div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
