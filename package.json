@@ -18,7 +18,11 @@
     "url": "https://github.com/dcposch/shinyspacebar/issues"
   },
   "homepage": "https://shinyspacebar.com",
+  "browserslist": "> 5%, last 2 versions",
   "dependencies": {
     "parcel": "^1.12.3"
+  },
+  "devDependencies": {
+    "typescript": "^3.5.3"
   }
 }
