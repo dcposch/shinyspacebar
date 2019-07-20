@@ -97,6 +97,10 @@
     cursor: default;
 }
 
+.PgHomeGame.PgHomeDisabled:hover {
+    background: none;
+}
+
 
 /**
  * GAME PAGE

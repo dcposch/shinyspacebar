@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>shiny spacebar</title>
+        <link rel="stylesheet" href="/index.css" />
+        <script async src="/ts/snek.ts"></script>
+
+        <!-- Primary Meta Tags -->
+        <title>SNEK - Shiny Spacebar - games you play with just a tap</title>
+        <meta name="title" content="SNEK - Shiny Spacebar - games you play with just a tap">
+        <meta name="description" content="Play games like snek, flap, and moon. Feeling creative? Submit your own">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://shinyspacebar.com/game/snek">
+        <meta property="og:title" content="SNEK - Shiny Spacebar - games you play with just a tap">
+        <meta property="og:description" content="Play games like snek, flap, and moon. Feeling creative? Submit your own">
+        <meta property="og:image" content="https://shinyspacebar.com/img/meta-preview.png">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://shinyspacebar.com/game/snek">
+        <meta property="twitter:title" content="SNEK - Shiny Spacebar - games you play with just a tap">
+        <meta property="twitter:description" content="Play games like snek, flap, and moon. Feeling creative? Submit your own">
+        <meta property="twitter:image" content="https://shinyspacebar.com/img/meta-preview.png">
+
+        <style>
+            .PgSnekGrid {
+                table-layout: fixed;
+            }
+
+            .PgSnek0,
+            .PgSnek1,
+            .PgSnek2,
+            .PgSnek3,
+            .PgSnek4 {
+                width: 10px;
+                height: 10px;
+            }
+
+            .PgSnek1 {
+                background: #888;
+            }
+            .PgSnek2 {
+                background: #00f;
+            }
+            .PgSnek3 {
+                background: #0f0;
+            }
+            .PgSnek4 {
+                background: #f00;
+            }
+        </style>
+    </head>
+    <body class="PgGame PgGameSnek">
+        <div class="LayWrap">
+            <div class="LayTitle PgGameTitle">
+                <span class="TypeH1">
+                    SNEK
+                </span>
+                <a class="TypeLink PgGameLink" href="/">^ done</a>
+            </div>
+            <div class="PgGameStatusBar">
+                <div class="TypeH3 JsGameLevel">L01</div>
+                <div class="TypeH3 JsGameScore">0000</div>
+            </div>
+            <div class="PgGameScreen JsGameScreen"></div>
+            <div class="PgGameModal JsGameModal">
+                <div>
+                    <div class="TypeH3">TAP TO START</div>
+                    <div class="TypeBody">TAP TO TURN RIGHT</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
