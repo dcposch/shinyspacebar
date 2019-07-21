@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>COWBELL HERO</title>
+        <link rel="stylesheet" href="/index.css" />
+        <script async src="/ts/bell.ts"></script>
+
+        <style>
+            .PgBellB {
+                position: absolute;
+                bottom: 0px;
+                left: auto;
+                right: auto;
+                width: 80px;
+                height: 20px;
+                border-radius: 8px;
+            }
+
+            .PgBellNone {
+                background: #E5E5E5; 
+            }
+            .PgBellGood{
+                background: #7D3; 
+            }
+            .PgBellBad {
+                background: #D43; 
+            }
+        </style>
+    </head>
+    <body class="PgGame PgBell">
+        <div class="LayWrap">
+            <div class="LayTitle PgGameTitle">
+                <span class="TypeH1">
+                    COWBELL HERO
+                </span>
+                <a class="TypeLink PgGameLink" href="/">^ done</a>
+            </div>
+            <div class="PgGameStatusBar">
+                <div class="TypeH3 JsGameLevel">L01</div>
+                <div class="TypeH3 JsGameScore">0000</div>
+            </div>
+            <div class="PgGameScreen JsGameScreen">
+                <div class="PgBellBlocks JsBellBlocks">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="PgBellB JsBellB"></div>
+                <audio class="JsBellAudio" src="/game/bell/oldtownroad.mp3"></audio>
+            </div>
+            <div class="PgGameModal JsGameModal">
+                <div>
+                    <div class="TypeH3 JsGameModalL1">TAP TO START</div>
+                    <div class="TypeBody JsGameModalL2">TAP TO HIT THE COWBELL</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

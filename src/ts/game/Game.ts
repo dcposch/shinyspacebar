@@ -13,6 +13,8 @@ export interface GameState {
 
 export default abstract class Game {
     gameModal: HTMLElement
+    gameModalL1: HTMLElement
+    gameModalL2: HTMLElement
     gameScreen: HTMLElement
     gameLevel: HTMLElement
     gameScore: HTMLElement
@@ -20,6 +22,8 @@ export default abstract class Game {
 
     constructor() {
         this.gameModal = document.querySelector('.JsGameModal')
+        this.gameModalL1 = document.querySelector('.JsGameModalL1')
+        this.gameModalL2 = document.querySelector('.JsGameModalL2')
         this.gameScreen = document.querySelector('.JsGameScreen')
         this.gameLevel = document.querySelector('.JsGameLevel')
         this.gameScore = document.querySelector('.JsGameScore')
@@ -33,25 +37,36 @@ export default abstract class Game {
         }
     }
 
-    gameOnStart() {
+    /** Invoked when each level starts */
+    gameOnStart(): void {
         this.state.frame = 1
         this.state.level = 1
         this.state.score = 0
         this.state.started = true
     }
 
-    abstract gameOnTap()
-    abstract gameFrame(frame: number, dt: number)
+    /** Invoked on each touch tap / spacebar press */
+    abstract gameOnTap(): void
 
-    gameOnEnd(message: string) {
-        this.gameModal.innerText = message
+    /** Invoked on each touch tap / spacebar press end. Optional. */
+    gameOnTapEnd() {}
+
+    /** Invoked 60x per second while the game is running  */
+    abstract gameFrame(frame: number, dt: number): void
+
+    /** Invoked to end play, either after beating a level or dying */
+    gameOnEnd(message: string): void {
+        this.gameModalL1.innerText = message
+        this.gameModalL2.innerText = 'TAP TO START'
         this.state.started = false
         this.render()
     }
 
     init() {
         document.addEventListener('keydown', this.onKeyDown)
+        document.addEventListener('keyup', this.onKeyUp)
         document.addEventListener('touchstart', this.onTap)
+        document.addEventListener('touchend', this.onTapEnd)
         this.frame()
     }
 
@@ -82,11 +97,23 @@ export default abstract class Game {
         }
     }
 
+    onKeyUp = (e: KeyboardEvent) => {
+        if(e.key === ' ') {
+            this.onTapEnd()
+        }
+    }
+
     onTap = () => {
         if(this.state.started) {
             this.gameOnTap()
         } else {
             this.gameOnStart()
+        }
+    }
+
+    onTapEnd = () => {
+        if(this.state.started) {
+            this.gameOnTapEnd()
         }
     }
 }

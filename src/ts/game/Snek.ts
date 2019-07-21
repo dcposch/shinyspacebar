@@ -37,9 +37,13 @@ export default class Snek extends Game {
         super.gameOnStart()
 
         const w =  10 + Math.floor(this.state.level / 2)
-        this.state.snakel = 5 + (this.state.level % 2) * 2
+        this.state.tapped = false
         this.state.board = Snek.genBoard(w)
-        this.state.snake = [[0, w-1]]
+        this.state.board[w-1][0] = SnekBlock.Snake
+        this.state.snake = [[w-1, 0]]
+        this.state.snakel = 5 + (this.state.level % 2) * 2
+        this.state.dirx = 0
+        this.state.diry = -1
         
         this.render()
     }
@@ -53,8 +57,10 @@ export default class Snek extends Game {
             return;
         }
 
+        console.log('FRAME ' + frame)
+
         const {board, snake} = this.state
-        let { dirx, diry} = this.state
+        let {dirx, diry} = this.state
 
         // handle input
         if (this.state.tapped) {
@@ -67,11 +73,12 @@ export default class Snek extends Game {
 
         // move head of snake to snake
         const head = snake[snake.length - 1]
-        const next = [head[0] + dirx, head[1] + diry] as [number, number]
+        const next = [head[0] + diry, head[1] + dirx] as [number, number]
         snake.push(next)
         const prevBlock = board[next[0]][next[1]]
-        if (prevBlock == null || prevBlock === SnekBlock.Wall) {
-            this.gameOnEnd('crash')
+        if (prevBlock == null || 
+            (prevBlock !== SnekBlock.Dot && prevBlock !== SnekBlock.Food&& prevBlock !== SnekBlock.Empty)) {
+            this.gameOnEnd('CRASH')
         }
         board[next[0]][next[1]] = SnekBlock.Snake
 
@@ -85,26 +92,33 @@ export default class Snek extends Game {
         }
 
         // victory condition
-        if( !board.some(b => b.some(c => c === SnekBlock.Dot || c === SnekBlock.Food))) {
-            this.gameOnEnd('victory')
+        if(!board.some(b => b.some(c => c === SnekBlock.Dot || c === SnekBlock.Food))) {
+            this.gameOnEnd(`LEVEL ${this.state.level} VICTORY`)
         }
+
+        if (this.state.started) {
+            this.state.score++
+        }
+
+        this.render()
     }
 
     render() {
         super.render()
 
         const {board} = this.state
+        const rows = board.length
+        const height = this.gameScreen.clientHeight / rows - 2
 
         const html = `
             <table class='PgSnekGrid'>
                 ${board.map(b => `
-                    <tr>
+                    <tr style='height: ${height}px'>
                         ${b.map(c => `<td class='PgSnek${c}'>&nbsp;</td>`).join('')}
                     </tr>
                 `).join('')}
             </table>
         `
-        console.log(html)
 
         this.gameScreen.innerHTML = html
     }

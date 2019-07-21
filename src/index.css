@@ -131,7 +131,8 @@
     margin: 30px 20px;
     width: 290px;
     height: 290px;
-    background: #eee;
+    overflow: hidden;
+    position: relative;
 }
 
 .PgGameModal {

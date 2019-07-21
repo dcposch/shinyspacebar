@@ -27,28 +27,24 @@
         <style>
             .PgSnekGrid {
                 table-layout: fixed;
-            }
-
-            .PgSnek0,
-            .PgSnek1,
-            .PgSnek2,
-            .PgSnek3,
-            .PgSnek4 {
-                width: 10px;
-                height: 10px;
+                width: 100%;
             }
 
             .PgSnek1 {
-                background: #888;
+                background: #E5E5E5; /* Dot */
+                border-radius: 100px;
             }
             .PgSnek2 {
-                background: #00f;
+                background: #224; /* Food */
+                border-radius: 100px;
             }
             .PgSnek3 {
-                background: #0f0;
+                background: #555; /* Wall */
+                border-radius: 4px;
             }
             .PgSnek4 {
-                background: #f00;
+                background: #7D3; /* Snake */
+                border-radius: 8px;
             }
         </style>
     </head>
@@ -67,8 +63,8 @@
             <div class="PgGameScreen JsGameScreen"></div>
             <div class="PgGameModal JsGameModal">
                 <div>
-                    <div class="TypeH3">TAP TO START</div>
-                    <div class="TypeBody">TAP TO TURN RIGHT</div>
+                    <div class="TypeH3 JsGameModalL1">TAP TO START</div>
+                    <div class="TypeBody JsGameModalL2">TAP TO TURN RIGHT</div>
                 </div>
             </div>
         </div>
