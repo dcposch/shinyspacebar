@@ -494,6 +494,7 @@ const times = [
 export default class Bell extends Game {
     state: BellGameState
     bellAudio: HTMLAudioElement
+    bellCowbellAudio: HTMLAudioElement
     bellB: HTMLDivElement
     bellBlocks: HTMLElement[]
 
@@ -501,6 +502,7 @@ export default class Bell extends Game {
         super()
 
         this.bellAudio = document.querySelector('.JsBellAudio')
+        this.bellCowbellAudio = document.querySelector('.JsBellCowbellAudio')
         this.bellB = document.querySelector('.JsBellB')
         this.bellBlocks = Array.prototype.slice.apply(document.querySelectorAll('.JsBellBlocks div'))
 
@@ -518,6 +520,8 @@ export default class Bell extends Game {
     gameOnTap() {
         this.state.pressed = true
         // times.push({start:this.curTime(), end:null})
+        this.bellCowbellAudio.currentTime = 0
+        this.bellCowbellAudio.play()
     }
 
     gameOnTapEnd() {
